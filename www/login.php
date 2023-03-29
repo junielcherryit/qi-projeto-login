@@ -1,6 +1,5 @@
 <?php
     $email = $_POST['email'];
-    // $entrar = $_POST['entrar'];
     $senha = md5($_POST['senha']);
     $connect = mysqli_connect('db','root','password', 'qi');
     if (isset($email)) {
@@ -8,7 +7,6 @@
         '$email' AND senha = '$senha'") or die("erro ao selecionar");
         if (mysqli_num_rows($verifica)<=0){
             echo"<script language='javascript' type='text/javascript'>alert('E-mail e/ou senha incorretos');window.location.href='login.html';</script>";
-            // die();
         } else{
             setcookie("email",$email);
             header("Location:index.php");
